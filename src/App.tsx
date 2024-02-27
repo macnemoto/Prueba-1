@@ -12,13 +12,37 @@ function App() {
           <div className='flex w-full'>
             <div className='flex w-3/5 pb-2'>
               <div className='bg-gray-500  w-full'>
-              <p className='px-4 py-2 w-full'>Pokémon Básico</p>
+                <p className='px-4 py-2 w-full'>Pokémon Básico</p>
               </div>
             </div>
-           <div className='flex justify-center  w-2/5 bg-gray-500 rounded-bl-lg'>
-           <p className='uppercase bg-gray-500 '>ps <span className='text-2xl'>70</span></p>
-           </div>
+            <div className='flex flex-row justify-center pt-1 w-2/5 bg-gray-500 rounded-bl-lg'>
+              <p className='uppercase bg-gray-500 '>ps <span className='text-2xl'>70</span></p>
+              <img className='w-6 h-6 mt-1 mx-1' src="/src/assets/Energ%3Fa_planta.webp" alt="planta verde" />
+            </div>
           </div>
+        </div>
+      </div>
+      <div className='px-4 mt-5'>
+        <div className='flex items-center justify-between px-4'>
+          <div className='flex flex-row'>
+            <img className='w-6 h-6 mt-1 mx-1' src="/src/assets/Energ%3Fa_planta.webp" alt="planta verde" />
+            <p className=' self-center font-semibold '>Látigo Cepa </p>
+          </div>
+          <p className='font-semibold text-gray-700'>
+            10
+          </p>
+        </div>
+      </div>
+      <div className='px-4 mt-5'>
+        <div className='flex items-center justify-between px-4'>
+          <div className='flex flex-row'>
+            <img className='w-6 h-6 mt-1 mx-1' src="/src/assets/Energ%3Fa_planta.webp" alt="planta verde" />
+            <img className='w-6 h-6 mt-1 mx-1' src="/src/assets/Energ%3Fa_incolora.webp" alt="planta verde" />
+            <p className=' self-center font-semibold '>Hoja Afilada </p>
+          </div>
+          <p className='font-semibold text-gray-700'>
+            20
+          </p>
         </div>
       </div>
     </div>
