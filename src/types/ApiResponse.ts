@@ -9,9 +9,11 @@ export interface Data {
   subtypes: string[]
   hp: string
   types: string[]
+  evolvesFrom: string
   evolvesTo: string[]
   attacks: Attack[]
-  weaknesses: Weakness[]
+  weaknesses: Resistance[]
+  resistances: Resistance[]
   retreatCost: string[]
   convertedRetreatCost: number
   set: Set
@@ -46,6 +48,11 @@ export interface DataImages {
 
 export interface Legalities {
   unlimited: string
+}
+
+export interface Resistance {
+  type: string
+  value: string
 }
 
 export interface Set {
@@ -83,9 +90,4 @@ export interface Normal {
   high: number
   market: number
   directLow: null
-}
-
-export interface Weakness {
-  type: string
-  value: string
 }
