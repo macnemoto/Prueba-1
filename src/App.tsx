@@ -8,7 +8,7 @@ function App () {
   const [card, setCard] = useState<PokemonCard | null>(null)
 
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v2/cards/gym1-88', {
+    fetch('https://api.pokemontcg.io/v2/cards/base6-18', {
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY
       }
@@ -69,22 +69,27 @@ function App () {
               </div>
             </div>
             <div className=''>Resistencia
-              {/* <div className='flex justify-center items-center'>
-                {card?.data.resistances.map((item, index) =>
-                  <div key={index} className='flex pt-4'>
-                    <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item.type}.webp`} alt={item.type} />
-                    <span className='text-2xl text-black'>{item.value}</span>
-                  </div>
-                )}
-              </div> */}
+              <div className='flex justify-center items-center'>
+                {((card?.data.resistances) != null)
+                  ? card.data.resistances.map((item, index) => (
+                    <div key={index} className='flex pt-4'>
+                      <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item.type}.webp`} alt={item.type} />
+                      <span className='text-2xl text-black'>{item.value}</span>
+                    </div>
+                  ))
+
+                  : <p></p>}
+              </div>
             </div>
             <div className='flex flex-col'>Coste de Retirada
-              <div className='flex pt-4'>
-                {/* {card?.data.retreatCost.map((item, index) =>
-                  <div key={index} className='flex'>
-                    <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item}.webp`} alt={item} />
-                  </div>
-                )} */}
+              <div className='flex justify-center items-center pt-4'>
+                {((card?.data.retreatCost) != null)
+                  ? (card?.data.retreatCost.map((item, index) =>
+                    <div key={index} className='flex'>
+                      <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item}.webp`} alt={item} />
+                    </div>
+                    ))
+                  : <p></p>}
               </div>
             </div>
           </div>
