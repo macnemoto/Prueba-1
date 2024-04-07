@@ -1,12 +1,14 @@
-import { useForm, type SubmitHandler } from 'react-hook-form'
+import { type FieldValues, useForm, type SubmitHandler, type Control } from 'react-hook-form'
 import Checkbox from './Checkbox'
+// import Checkbox from './Checkbox'
 enum GenderEnum {
   Venezuela = 'Venezuela',
   Colombia = 'Colombia',
   Argentina = 'Argentina',
 }
 
-interface Inputs {
+export interface Inputs extends FieldValues {
+  name: string
   email: string
   date: string
   exampleRequired: string
@@ -14,11 +16,9 @@ interface Inputs {
 }
 
 function Footer () {
-  const { register, handleSubmit } = useForm<Inputs>()
+  const { register, handleSubmit, control } = useForm<Inputs, Control>()
 
   const onSubmit: SubmitHandler<Inputs> = (data) => { console.log(data) }
-
-  // console.log(watch('example'))
 
   return (
     <footer className="bg-[#18181B] px-4 pb-10">
@@ -39,15 +39,14 @@ function Footer () {
             </section>
             <section className='flex flex-col lg:w-2/4 text-white '>
               <div className='mb-4 mt-4 lg:mt-0'>I’d like to receive emails about:</div>
-              <Checkbox id={'videoGame'} text={'Pokémon video games, apps, and more'} verified={true} />
-              <Checkbox id={'centerPokemon'} text={'Pokémon Center (our official online shop)'} verified={true} />
-              <Checkbox id={'terms'} text={'I accept the Pokemon.com Terms of Use and Privacy Notice'} verified={false} />
+              <Checkbox name='videoGame' control={control} text='Pokémon video games, apps, and more'/>
+              <Checkbox name='centerPokemon' control={control} text='Pokémon Center (our official online shop)'/>
+              <Checkbox name='terms' control={control} text='I accept the Pokemon.com Terms of Use and Privacy Notice'/>
             </section>
           </div>
           <input className='flex justify-center items-center font-semibold bg-[#808080] w-[150px] rounded-lg h-16 mt-4 lg:mt-0' type="submit" />
         </form>
       </div>
-      {/* <a className='flex justify-center items-center font-semibold bg-[#808080] w-[150px] rounded-lg h-16 mt-4 lg:mt-0' href="">SIGN UP</a> */}
     </footer>
   )
 }

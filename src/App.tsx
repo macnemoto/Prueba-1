@@ -10,7 +10,7 @@ function App () {
   const [card, setCard] = useState<PokemonCard | null>(null)
 
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v2/cards/swsh5-68', {
+    fetch('https://api.pokemontcg.io/v2/cards/bw1-18', {
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY
       }

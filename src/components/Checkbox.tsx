@@ -1,17 +1,21 @@
-interface CheckboxProps {
-  id: string
-  text: string
-  verified: boolean
+import { Controller, type Control } from 'react-hook-form'
+import { type Inputs } from './Footer'
 
+export interface CheckboxProps {
+  name: string
+  control: Control<Inputs, Control>
+  text: string
 }
 
-function Checkbox ({ id, text, verified }: CheckboxProps) {
-  return (
-  <div className='flex gap-3 lg:gap-0 my-1'>
-  <input className=' h-6 w-[10%]' defaultChecked={verified} type="checkbox" id={id} />
-  <label className='w-[90%] text-base leading-[.90rem]' htmlFor={id}>{text}</label>
-</div>
-  )
+function Checkbox ({ name, control, text }: CheckboxProps) {
+  return (<div className='flex justify-center items-center gap-3 lg:gap-0 my-1'>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => <input className=' h-6 w-[10%]' type="checkbox" id={name} {...field} />}
+    />
+    <label className='w-[90%] text-base leading-[1rem]' htmlFor={name}>{text}</label>
+  </div>)
 }
 
 export default Checkbox
