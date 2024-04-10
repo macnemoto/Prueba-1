@@ -25,7 +25,7 @@ function App () {
   }, [])
 
   return (
-    <main className='container mx-auto'>
+    <main className=''>
       <div className='flex flex-col lg:flex-row justify-center items-center lg:items-start lg:py-10'>
         <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
           <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
