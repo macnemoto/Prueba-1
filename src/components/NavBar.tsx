@@ -1,17 +1,21 @@
 import { useState } from 'react'
-import { FiAlignJustify, FiSearch, FiSun, FiX } from 'react-icons/fi'
+import { FiAlignJustify, FiSearch, FiSun, FiX, FiMoon } from 'react-icons/fi'
 
 const navElement = ['Advanced', 'Syntax', 'Sets', 'Donate']
 
 function NavBar () {
   const [navBar, setNavBar] = useState(false)
   const [iconX, seticonX] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
 
   const toggleNavBar = () => {
     setNavBar(!navBar)
     seticonX(!iconX)
   }
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
   return (<div className="bg-[#161B22]">
         <div className='w-full flex justify-between pl-4'>
             <div className="flex">
@@ -20,7 +24,7 @@ function NavBar () {
                     Pokémon TCG Guru
                 </p>
             </div>
-            <div className='w-10 self-center' onClick={() => { toggleNavBar() }}>
+            <div className='w-10 self-center' onClick={toggleNavBar}>
                 {iconX ? <FiX className='w-6 h-auto text-white' /> : <FiAlignJustify className='w-6 h-auto text-white' />}
             </div>
         </div>
@@ -31,7 +35,9 @@ function NavBar () {
             </div>
             {navElement.map((item, index) => (<a className='flex text-[#beb6b6] pl-2 h-10 py-2 hover:bg-[#0D1117]' key={index} href="#">{item}</a>
             ))}
-            <FiSun className=' text-[#beb6b6] pl-2 py-1 h-8 w-8 hover:bg-[#0D1117]' />
+            <div className='hover:bg-[#0D1117] py-2' onClick={toggleDarkMode}>
+            {darkMode ? <FiMoon className=' text-[#beb6b6] pl-2 py-1 h-6 w-6' /> : <FiSun className=' text-[#beb6b6] pl-2 py-1 h-6 w-6' />}
+            </div>
         </div>
     </div>
 
