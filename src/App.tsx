@@ -5,6 +5,7 @@ import cardPokemon from './data/cardPokemon.json'
 import Statistics from './components/Statistics'
 import ButtonOrange from './components/ButtonOrange'
 import Footer from './components/Footer'
+import NavBar from './components/NavBar'
 
 function App () {
   const [card, setCard] = useState<PokemonCard | null>(null)
@@ -26,6 +27,7 @@ function App () {
 
   return (
     <main className=''>
+      <NavBar/>
       <div className='flex flex-col lg:flex-row justify-center items-center lg:items-start lg:py-10'>
         <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
           <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
