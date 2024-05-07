@@ -33,6 +33,7 @@ function Footer () {
       .then(data => {
         const countryNames = data.map((country: Country) => country.name.common)
         const countriSort = countryNames.sort()
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         setCountries(countriSort)
       })
       .catch(error => { console.error('Error:', error) })
@@ -55,7 +56,7 @@ function Footer () {
                 <div className='flex gap-3 mt-2'>
                   <select className='w-full rounded h-10 pl-2 font-bold text-[#757575]' {...register('country')}>
                     {countries.map((item, index) => (
-                        <option key={index} value={item} selected>{item}</option>
+                        <option key={index} value={item}>{item}</option>
                     ))}
                   </select>
                   <input onClick={() => { clickInput() } } className='w-full rounded h-10 pl-4 font-bold text-[#757575]' placeholder='Birthday' type={type} {...register('date')} />
