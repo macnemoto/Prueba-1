@@ -28,7 +28,7 @@ function NavBar () {
                 {iconX ? <FiX className='w-6 h-auto text-white' /> : <FiAlignJustify className='w-6 h-auto text-white' />}
             </div>
         </div>
-        <div className={navBar ? 'py-3' : 'hidden'}>
+        <div className={navBar ? 'py-3 z-50 absolute bg-[#161B22] w-full' : 'hidden'}>
             <div className='relative'>
                 <input className="w-full h-10 self-center rounded border-slate-800 bg-[#0D1117] text-white pl-10 border " placeholder='Search for a card' type="search" />
                 <FiSearch className='absolute left-3 top-[0.7rem] text-[#606164] h-5 w-5' />
