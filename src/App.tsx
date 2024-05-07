@@ -27,8 +27,8 @@ function App () {
 
   return (
     <main className=''>
-      <NavBar/>
-      <div className='flex flex-col lg:flex-row justify-center items-center lg:items-start lg:py-10'>
+      <NavBar />
+      <div className='flex flex-col lg:flex-row justify-center items-center lg:items-start lg:py-10 bg-white dark:bg-[#1A202C]'>
         <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
           <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
           <div className='hidden lg:block'>
@@ -37,10 +37,10 @@ function App () {
         </div>
         <section className=' flex flex-col items-center lg:items-start w-full font-semibold md:w-[560px] px-4 lg:px-0 lg:mt-3 lg:w-2/4'>
           <div className='lg:w-[430px]'>
-            <p className='bg-slate-600 w-full rounded-t-lg p-4 text-white font-semibold text-2xl tracking-wide'>{card?.data.name}</p>
+            <p className='bg-[#D1D5DB] dark:bg-slate-600 w-full rounded-t-lg p-4 dark:text-white font-semibold text-2xl tracking-wide'>{card?.data.name}</p>
             <div className='flex w-full'>
               <div className='flex w-3/5 pb-2'>
-                <div className='flex flex-row p-4 bg-gray-500  w-full '>
+                <div className='flex flex-row p-4 bg-[#FAFAFA] dark:bg-gray-500  w-full drop-shadow-3xl dark:drop-shadow-none'>
                   <p className='pr-1'>{card?.data.supertype}</p> - {card?.data.subtypes.map((item, index) =>
                     <div key={index}>
                       {index === card.data.subtypes.length - 1
@@ -50,8 +50,8 @@ function App () {
                   )}
                 </div>
               </div>
-              <div className='flex flex-row justify-center items-center w-2/5 pb-3 bg-gray-500 rounded-bl-[9px]'>
-                <p className='uppercase bg-gray-500 pr-2 '>ps <span className='text-2xl'> {card?.data.hp} </span></p>
+              <div className='flex flex-row justify-center items-center w-2/5 pb-3 bg-[#FAFAFA] dark:bg-gray-500 rounded-bl-[9px] drop-shadow-3xl dark:drop-shadow-none'>
+                <p className='uppercase bg-[#FAFAFA] dark:bg-gray-500 pr-2 '>ps <span className='text-2xl'> {card?.data.hp} </span></p>
                 {card?.data.types.map((item, index) =>
                   <img className='h-6 w-6' key={index} src={`/img/${item}.webp`} alt={item} />
                 )}
