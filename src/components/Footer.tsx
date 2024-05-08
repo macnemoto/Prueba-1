@@ -1,7 +1,6 @@
 import { type FieldValues, useForm, type SubmitHandler, type Control } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import Checkbox from './Checkbox'
-// import Checkbox from './Checkbox'
 enum GenderEnum {
   Venezuela = 'Venezuela',
   Colombia = 'Colombia',
@@ -55,7 +54,7 @@ function Footer () {
                   <p className='pb-5 font-bold text-xl text-[#1D1D1F] dark:text-white lg:text-2xl'>Sign up for Pokémon emails!</p>
                   <input className='w-full rounded h-10 pl-2 font-bold placeholder:text-slate-600 border-2 dark:border-0' {...register('email')} type='email' placeholder='Email' />
                   <div className='flex gap-3 mt-2'>
-                    <select className='w-full rounded h-10 pl-2 font-bold text-slate-600 dark:text-[#757575] border-2 dark:border-0 ' {...register('country')}>
+                    <select className='w-full rounded h-10 pl-2 font-bold  text-slate-600 dark:text-slate-600 border-2 dark:border-0 ' {...register('country')}>
                       {countries.map((item, index) => (
                         <option key={index} value={item}>{item}</option>
                       ))}
@@ -66,7 +65,7 @@ function Footer () {
               </section>
               <section className='flex flex-col justify-center items-center lg:items-center lg:w-1/2 dark:text-white '>
                 <div className=' md:w-[620px] lg:w-[430px] my-5'>
-                  <p className='mb-4 mt-4 lg:mt-0 pl-5'>I’d like to receive emails about:</p>
+                  <p className='mb-4 mt-4 lg:mt-0 pl-3'>I’d like to receive emails about:</p>
                   <Checkbox name='videoGame' control={control} text='Pokémon video games, apps, and more' checked={true} />
                   <Checkbox name='centerPokemon' control={control} text='Pokémon Center (our official online shop)' checked={true} />
                   <Checkbox name='terms' control={control} text='I accept the Pokemon.com Terms of Use and Privacy Notice' checked={false} />
@@ -75,9 +74,9 @@ function Footer () {
             </div>
             <div className='flex'>
               <div className='flex md:justify-center w-1/2 '>
-              <div className='md:w-[260px] lg:w-[430px] '>
-              <input className='font-semibold text-white dark:text-black bg-[#1D1D1F] dark:bg-[#808080] w-[150px] rounded-lg h-16 mt-4 lg:mt-0' type="submit" />
-              </div>
+                <div className='md:w-[260px] lg:w-[430px] '>
+                  <input className='font-semibold text-white dark:text-black bg-[#1D1D1F] dark:bg-[#808080] w-[150px] rounded-lg h-16 mt-4 lg:mt-0' type="submit" />
+                </div>
               </div>
               <div className='w-1/2'></div>
             </div>
