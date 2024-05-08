@@ -1,7 +1,7 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { type PokemonCard } from './types/ApiResponse'
-import cardPokemon from './data/cardPokemon.json'
+// import cardPokemon from './data/cardPokemon.json'
 import Statistics from './components/Statistics'
 import ButtonOrange from './components/ButtonOrange'
 import Footer from './components/Footer'
@@ -11,7 +11,7 @@ function App () {
   const [card, setCard] = useState<PokemonCard | null>(null)
 
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v2/cards/tk2b-3', {
+    fetch('https://api.pokemontcg.io/v2/cards/xy5-5', {
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY
       }
@@ -19,8 +19,7 @@ function App () {
       .then(async (response) => await response.json())
       .then((card: PokemonCard) => {
         setCard(card)
-        // console.log(card.data.images.large)
-        console.log(cardPokemon)
+        console.log(card)
       })
       .catch((error) => { console.log(error) })
   }, [])
@@ -99,9 +98,14 @@ function App () {
                   </div>
                 </div>
               </div>
-              <div className='self-start pt-4 bg-gray-300 rounded-b-lg w-full px-4 pb-2'>
-                <a className='font-semibold text-blue-700' href="https://pokemon.fandom.com/es/wiki/Bulbasaur_(TCG)">Carta de promoción</a>
-                <p className='font-medium' >SWSH231 Promo</p>
+              <div className='flex self-start pt-4 bg-gray-300 rounded-b-lg w-full px-4 pb-2'>
+                <div className='w-1/2'>
+                  <a className='font-semibold text-blue-700' href="https://pokemon.fandom.com/es/wiki/Bulbasaur_(TCG)">Carta de promoción</a>
+                  <p className='font-medium' >SWSH231 Promo</p>
+                </div>
+                <div className='flex justify-end w-1/2'>
+                  <img src={card?.data.set.images.symbol} alt="" srcSet="" />
+                </div>
               </div>
               <div className='block lg:hidden'>
                 <ButtonOrange titleOne={'Find Corphish in Pokémon'} titleTwo={'Explore more cards'} widthOne={'w-full'} widthTow={'w-full'}></ButtonOrange>
