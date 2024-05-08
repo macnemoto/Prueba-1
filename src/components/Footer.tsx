@@ -46,31 +46,39 @@ function Footer () {
 
   return (
     <footer className="bg-[#F5F5F7] dark:bg-[#18181B] px-4 pb-10">
-      <section className='container mx-auto lg:w-[850px]'>
-        <p className='pt-10 font-bold text-xl text-[#1D1D1F] dark:text-white lg:text-2xl'>Sign up for Pokémon emails!</p>
-        <div className='flex flex-col gap-10'>
+      <section className='flex flex-col justify-center lg:container lg:mx-auto bg-red-800'>
+        <div className='flex flex-col lg:w-1/2 bg-green-500'>
           <form className='flex flex-col ' onSubmit={handleSubmit(onSubmit)}>
-            <div className='flex flex-col lg:flex-row lg:gap-5'>
-              <section className='flex flex-col lg:w-2/4 justify-center gap-[.90rem] '>
+          <p className='pt-10 font-bold text-xl text-[#1D1D1F] dark:text-white lg:text-2xl'>Sign up for Pokémon emails!</p>
+            <div className='flex justify-center '>
+              <section className='flex flex-col lg:w-3/4 justify-center gap-[.90rem] '>
                 <input className='w-full rounded h-10 pl-2 font-bold placeholder:text-slate-600 border-2 dark:border-0' {...register('email')} type='email' placeholder='Email' />
                 <div className='flex gap-3 mt-2'>
                   <select className='w-full rounded h-10 pl-2 font-bold text-slate-600 dark:text-[#757575] border-2 dark:border-0 ' {...register('country')}>
                     {countries.map((item, index) => (
-                        <option key={index} value={item}>{item}</option>
+                      <option key={index} value={item}>{item}</option>
                     ))}
                   </select>
-                  <input onClick={() => { clickInput() } } className='w-full rounded h-10 pl-4 font-bold dark:text-[#757575] placeholder:text-slate-600 text-slate-600 border-2 dark:border-0' placeholder='Birthday' type={type} {...register('date')} />
+                  <input onClick={() => { clickInput() }} className='w-full rounded h-10 pl-4 font-bold dark:text-[#757575] placeholder:text-slate-600 text-slate-600 border-2 dark:border-0' placeholder='Birthday' type={type} {...register('date')} />
                 </div>
               </section>
-              <section className='flex flex-col lg:w-2/4 dark:text-white '>
+              {/* <section className='flex flex-col lg:w-2/4 dark:text-white '>
                 <div className='mb-4 mt-4 lg:mt-0'>I’d like to receive emails about:</div>
                 <Checkbox name='videoGame' control={control} text='Pokémon video games, apps, and more' checked={true} />
                 <Checkbox name='centerPokemon' control={control} text='Pokémon Center (our official online shop)' checked={true} />
                 <Checkbox name='terms' control={control} text='I accept the Pokemon.com Terms of Use and Privacy Notice' checked={false} />
-              </section>
+              </section> */}
             </div>
             <input className='flex justify-center items-center font-semibold text-white dark:text-black bg-[#1D1D1F] dark:bg-[#808080] w-[150px] rounded-lg h-16 mt-4 lg:mt-0' type="submit" />
           </form>
+        </div>
+        <div className='flex justify-center lg:w-1/2'>
+          <section className='flex flex-col lg:w-2/4 dark:text-white '>
+            <div className='mb-4 mt-4 lg:mt-0'>I’d like to receive emails about:</div>
+            <Checkbox name='videoGame' control={control} text='Pokémon video games, apps, and more' checked={true} />
+            <Checkbox name='centerPokemon' control={control} text='Pokémon Center (our official online shop)' checked={true} />
+            <Checkbox name='terms' control={control} text='I accept the Pokemon.com Terms of Use and Privacy Notice' checked={false} />
+          </section>
         </div>
       </section>
     </footer>

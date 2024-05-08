@@ -28,14 +28,14 @@ function App () {
   return (
     <main className=''>
       <NavBar />
-      <div className='flex flex-col lg:flex-row justify-center items-center lg:items-start lg:py-10 bg-white dark:bg-[#1A202C]'>
+      <div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 bg-white dark:bg-[#1A202C]'>
         <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
           <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
           <div className='hidden lg:block'>
             <ButtonOrange titleOne={'Find Corphish in Pokémon'} titleTwo={'Explore more cards'} widthOne={'w-[300px]'} widthTow={'w-[200px]'}></ButtonOrange>
           </div>
         </div>
-        <section className=' flex flex-col items-center lg:items-start w-full font-semibold md:w-[560px] px-4 lg:px-0 lg:mt-3 lg:w-2/4'>
+        <section className='flex flex-col items-center lg:items-center w-full font-semibold md:w-[560px] px-4 lg:px-0 lg:mt-3 lg:w-2/4'>
           <div className='lg:w-[430px]'>
             <p className='bg-[#D1D5DB] dark:bg-slate-600 w-full rounded-t-lg p-4 dark:text-white font-semibold text-2xl tracking-wide'>{card?.data.name}</p>
             <div className='flex w-full'>
