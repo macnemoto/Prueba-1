@@ -15,7 +15,7 @@ function Checkbox ({ name, control, text, checked }: CheckboxProps) {
       control={control}
       render={({ field }) => <input className=' h-6 w-[10%]' defaultChecked={checked} type="checkbox" id={name} {...field} />}
     />
-    <label className='w-[90%] text-base leading-[1rem]' htmlFor={name}>{text}</label>
+    <label className='w-[90%] text-base text-black dark:text-white leading-[1rem]' htmlFor={name}>{text}</label>
   </div>)
 }
 
