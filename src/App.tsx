@@ -26,9 +26,9 @@ function App () {
   }, [])
 
   return (
-    <main className=''>
+    <main className='bg-white dark:bg-[#1A202C]'>
       <NavBar />
-      <div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 bg-white dark:bg-[#1A202C]'>
+      <div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 '>
         <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
           <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
           <div className='hidden lg:block'>
