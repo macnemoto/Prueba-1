@@ -44,7 +44,7 @@ function Footer () {
   const onSubmit: SubmitHandler<Inputs> = (data) => { console.log(data) }
 
   return (
-    <footer className="bg-[#F5F5F7] dark:bg-[#18181B] px-4 pb-10">
+    <footer className="bg-[#F5F5F7] dark:bg-[#18181B] px-4 pb-10 relative z-[100]">
       <section className='flex flex-col justify-center lg:container lg:mx-auto'>
         <div className='flex flex-col'>
           <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
