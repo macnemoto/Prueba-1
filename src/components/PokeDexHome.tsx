@@ -11,7 +11,7 @@ const cardPokemonHome = [
 console.log(cardPokemonHome[0].left)
 
 function PokeDexHome () {
-  return (<main className="container mx-auto text-[#1d1d1f] dark:text-white mt-16 bg-yellow-950">
+  return (<main className="container mx-auto text-[#1d1d1f] dark:text-white mt-16">
         <div className=' flex flex-col justify-center items-center text-center mt-32 relative overflow-hidden min-h-[480px]'>
             <h1 className=" text-[2rem] leading-9 font-semibold">Pokémon TCG Guru</h1>
             <h2 className='text-xl mb-6 text-[#818A93]'>The Ultimate Pokémon Card Database</h2>
@@ -25,7 +25,7 @@ function PokeDexHome () {
             {/* <div className=' h-[50vh] w-full lg:w-2/3  bg-blue-700 relative overflow-hidden'> */}
                 {cardPokemonHome.map((item, index) => (
                     <a key={index} href="#">
-                        <img width='240' className={`mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/img/homeImg/${item.numero}.png`} alt="" />
+                        <img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/img/homeImg/${item.numero}.png`} alt="" />
                     </a>
                 ))}
             {/* </div> */}
