@@ -51,7 +51,7 @@ function Footer () {
             <div className='flex flex-col lg:flex-row justify-center '>
               <section className='flex flex-col lg:w-1/2 justify-center items-center'>
                 <div className='lg:w-[430px]'>
-                  <p className='pb-5 font-bold text-xl text-[#1D1D1F] dark:text-white lg:text-2xl'>Sign up for Pokémon emails!</p>
+                  <p className='py-5 font-bold text-xl text-[#1D1D1F] dark:text-white lg:text-2xl'>Sign up for Pokémon emails!</p>
                   <input className='w-full rounded h-10 pl-2 font-bold placeholder:text-slate-600 border-2 dark:border-0' {...register('email')} type='email' placeholder='Email' />
                   <div className='flex gap-3 mt-2'>
                     <select className='w-full rounded h-10 pl-2 font-bold  text-slate-600 dark:text-slate-600 border-2 dark:border-0 ' {...register('country')}>

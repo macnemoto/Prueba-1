@@ -11,9 +11,10 @@ const cardPokemonHome = [
 console.log(cardPokemonHome[0].left)
 
 function PokeDexHome () {
-  return (<main className="container mx-auto text-[#1d1d1f] dark:text-white mt-16">
-        <div className=' flex flex-col justify-center items-center text-center mt-32 relative overflow-hidden min-h-[480px]'>
-            <h1 className=" text-[2rem] leading-9 font-semibold">Pokémon TCG Guru</h1>
+  return (<main className="container mx-auto text-[#1d1d1f] dark:text-white mt-16 lg:mt-32">
+        <div className=' flex flex-col items-center text-center relative overflow-hidden min-h-[480px] 2xl:min-h-[calc(100vh-29.19rem)]'>
+          <div className='mx-4 md:w-full'>
+          <h1 className=" text-[2rem] leading-9 font-semibold">Pokémon TCG Guru</h1>
             <h2 className='text-xl mb-6 text-[#818A93]'>The Ultimate Pokémon Card Database</h2>
             <div className=" flex w-full justify-center items-center mb-6">
                 <p className='relative w-full max-w-[41.19rem]'>
@@ -22,13 +23,12 @@ function PokeDexHome () {
                 </p>
             </div>
             <h4 className='text-center mb-24'>Try <a className='text-[#485fc7]' href="#"> {'"venusaur"'} </a> or <a className='text-[#485fc7]' href="#"> {'"subtypes:mega"'} </a> or simply <a className='text-[#485fc7un ]' href="#">Browse By Set</a> </h4>
-            {/* <div className=' h-[50vh] w-full lg:w-2/3  bg-blue-700 relative overflow-hidden'> */}
+          </div>
                 {cardPokemonHome.map((item, index) => (
                     <a key={index} href="#">
                         <img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/img/homeImg/${item.numero}.png`} alt="" />
                     </a>
                 ))}
-            {/* </div> */}
         </div>
     </main>)
 }
