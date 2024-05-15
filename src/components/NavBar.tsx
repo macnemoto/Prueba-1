@@ -33,8 +33,8 @@ function NavBar () {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
   }
   return (
-    <header className="bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none ">
-      <div className=' flex justify-between pl-4 lg:justify-around lg:container lg:mx-auto lg:pl-10'>
+    <header className="bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none relative z-50">
+      <div className=' flex justify-between pl-4 lg:justify-between lg:container lg:mx-auto lg:pl-10'>
         <div className="flex relative">
           <a href="http://localhost:5173/"><img className=" h-auto w-16 lg:w-[4rem]" src="NavBar/Grookey.webp" alt="pokemon" /></a>
           <a className='dark:text-white self-center font-semibold px-4 lg:w-44 lg:text-center lg:px-0"' href="http://localhost:5173/" >
@@ -51,7 +51,7 @@ function NavBar () {
             {navElement.map((item, index) => (
               <a className='  px-4 flex items-center h-full hover:bg-[#F2F2F2] dark:hover:bg-[#0D1117]' key={index} href={`/${item}`}>{item}</a>
             ))}
-            <div className='hover:bg-[#F2F2F2] dark:hover:bg-[#0D1117] py-2 flex  items-center' onClick={() => { toggleDarkMode(); handleChangeTheme() }}>
+            <div className='hover:bg-[#F2F2F2] dark:hover:bg-[#0D1117] py-2 lg:mr-5 flex  items-center' onClick={() => { toggleDarkMode(); handleChangeTheme() }}>
               {darkMode ? <FiMoon className=' text-[#1D1D1F]  h-6 w-10' /> : <FiSun className=' text-[#beb6b6]  h-6 w-10' />}
             </div>
           </div>

@@ -5,9 +5,9 @@ import { type PokemonCard } from './../types/ApiResponse'
 
 function CardTemplate () {
   const [card, setCard] = useState<PokemonCard | null>(null)
-
+  // xy5-5
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v2/cards/xy5-5', {
+    fetch('https://api.pokemontcg.io/v2/cards/ex6-51', {
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY
       }
