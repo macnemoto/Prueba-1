@@ -12,7 +12,7 @@ console.log(cardPokemonHome[0].left)
 
 function PokeDexHome () {
   return (<main className="container mx-auto text-[#1d1d1f] dark:text-white mt-16 lg:mt-32">
-        <div className=' flex flex-col items-center text-center relative overflow-hidden min-h-[480px] 2xl:min-h-[calc(100vh-29.19rem)]'>
+        <div className=' flex flex-col items-center text-center relative overflow-hidden min-h-[480px]'>
           <div className='mx-4 md:w-full'>
           <h1 className=" text-[2rem] leading-9 font-semibold">Pokémon TCG Guru</h1>
             <h2 className='text-xl mb-6 text-[#818A93]'>The Ultimate Pokémon Card Database</h2>
