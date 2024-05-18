@@ -33,7 +33,7 @@ function NavBar () {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
   }
   return (
-    <header className="bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none relative z-50">
+    <header className="flex justify-center bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none relative z-50 h-16">
       <div className=' flex justify-between pl-4 lg:justify-between lg:container lg:mx-auto lg:pl-10'>
         <div className="flex relative">
           <a href="http://localhost:5173/"><img className=" h-auto w-16 lg:w-[4rem]" src="NavBar/Grookey.webp" alt="pokemon" /></a>
