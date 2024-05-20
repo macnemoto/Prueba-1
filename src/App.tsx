@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PokeDexHome from './components/PokeDexHome'
 import SearchCard from './pages/SearchCard'
+import CardTemplate from './components/CardTemplate'
 
 function App () {
   return (
@@ -13,6 +14,7 @@ function App () {
         <Routes>
           <Route path='/' element={<PokeDexHome />} />
           <Route path='/search/:name' element={<SearchCard/>} />
+          <Route path='/card/:id' element={<CardTemplate/>} />
         </Routes>
         <Footer />
       </div>

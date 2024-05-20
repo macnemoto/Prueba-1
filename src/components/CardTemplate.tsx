@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import ButtonOrange from './ButtonOrange'
 import Statistics from './Statistics'
 import { type PokemonCard } from './../types/ApiResponse'
+import { useParams } from 'react-router-dom'
 
 function CardTemplate () {
   const [card, setCard] = useState<PokemonCard | null>(null)
+  const { id } = useParams()
   // xy5-5
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v2/cards/ex6-51', {
+    fetch(`https://api.pokemontcg.io/v2/cards/${id}`, {
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY
       }
@@ -97,7 +99,7 @@ function CardTemplate () {
             <p className='font-medium' >SWSH231 Promo</p>
           </div>
           <div className='flex justify-end w-1/2'>
-            <img src={card?.data.set.images.symbol} alt="" srcSet="" />
+            <img className='w-10 h-10' src={card?.data.set.images.symbol} alt={card?.data.name} />
           </div>
         </div>
         <div className='block lg:hidden'>
