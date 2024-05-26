@@ -1,19 +1,35 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { type Datum } from './types/SearchCard'
+import { type PokemonCard } from './types/SearchCard'
+import { ScrollClear } from '../helper/ScrollClear'
 
 function SearchCard () {
+  ScrollClear()
   const { name } = useParams()
-  const [pokeCards, setPokeCards] = useState([])
+  const [pokeCards, setPokeCards] = useState<PokemonCard | null>(null)
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
     const fechData = async () => {
       try {
+        if (name != null) {
+          const dataPokeApi = localStorage.getItem(name)
+          if (dataPokeApi != null) {
+            const dataPokeApiParse = JSON.parse(dataPokeApi)
+            setPokeCards(dataPokeApiParse)
+            setLoader(false)
+            return
+          }
+        }
+
         const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}`)
         const dataApi = await response.json()
         const { data } = dataApi
         setPokeCards(data)
+        // console.log(name)
+        if (name != null) {
+          localStorage.setItem(name, JSON.stringify(data))
+        }
         setLoader(false)
       } catch (error) {
         console.error('Error Fetching data:', error)
@@ -21,7 +37,6 @@ function SearchCard () {
     }
     void fechData()
   }, [name])
-  // console.log(pokeCards)
 
   return (<div className='container mx-auto px-5 min-h-[600px]'>
     {loader
