@@ -14,7 +14,7 @@ function InputPokemon ({ inputClass, updateNavbarToggle }: InputPokemonType) {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (pokemonName.trim().length > 0) {
-      navigate(`/search/${pokemonName.trim().toLowerCase()}`)
+      navigate(`/Prueba-1/search/${pokemonName.trim().toLowerCase()}`)
       if (updateNavbarToggle != null) {
         updateNavbarToggle()
       }

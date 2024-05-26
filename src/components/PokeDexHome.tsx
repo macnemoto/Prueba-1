@@ -36,7 +36,7 @@ function PokeDexHome () {
             <FiSearch className=' absolute left-[0.75rem] top-[0.68rem] text-[#606164] h-5 w-5' />
           </form>
         </div>
-        <h4 className='text-center mb-24'>Try <a className='text-[#485fc7]' href="/search/venusaur"> {'"venusaur"'} </a> or <a className='text-[#485fc7]' href="#"> {'"subtypes:mega"'} </a> or simply <a className='text-[#485fc7un ]' href="#">Browse By Set</a> </h4>
+        <h4 className='text-center mb-24'>Try <a className='text-[#485fc7]' href="/Prueba-1/search/venusaur"> {'"venusaur"'} </a> or <a className='text-[#485fc7]' href="#"> {'"subtypes:mega"'} </a> or simply <a className='text-[#485fc7un ]' href="#">Browse By Set</a> </h4>
       </div>
       {cardPokemonHome.map((item, index) => (
         <a key={index} href="#">
