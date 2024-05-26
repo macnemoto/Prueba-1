@@ -65,7 +65,7 @@ function SearchCard () {
       <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:lg:grid-cols-5 gap-5 xl:gap-10  mb-20 justify-items-center'>
       {
       pokeCards?.map((item: Datum, index: Key | null | undefined) => (
-  <Link key={index} to={`/Prueba-1/card/${item.id}`}>
+  <Link key={index} to={`/card/${item.id}`}>
     <img key={index} width={245} height={342} src={item.images.small} alt={item.name} />
   </Link>
       ))}
