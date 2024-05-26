@@ -7,7 +7,11 @@ import { useParams } from 'react-router-dom'
 function CardTemplate () {
   const [card, setCard] = useState<PokemonCard | null>(null)
   const { id } = useParams()
-  // xy5-5
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   useEffect(() => {
     fetch(`https://api.pokemontcg.io/v2/cards/${id}`, {
       headers: {
@@ -22,7 +26,7 @@ function CardTemplate () {
       .catch((error) => { console.log(error) })
   }, [])
 
-  return (<div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 '>
+  return (<div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 min-h-[600px] '>
   <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
     <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
     <div className='hidden lg:block'>
