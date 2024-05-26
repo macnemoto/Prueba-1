@@ -12,9 +12,9 @@ function App () {
       <div className='bg-white dark:bg-[#1A202C]'>
         <NavBar />
         <Routes>
-          <Route path='/' element={<PokeDexHome />} />
-          <Route path='/search/:name' element={<SearchCard/>} />
-          <Route path='/card/:id' element={<CardTemplate/>} />
+          <Route path='/Prueba-1' element={<PokeDexHome />} />
+          <Route path='/Prueba-1/search/:name' element={<SearchCard/>} />
+          <Route path='/Prueba-1/card/:id' element={<CardTemplate/>} />
         </Routes>
         <Footer />
       </div>
