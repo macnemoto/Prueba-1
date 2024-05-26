@@ -3,15 +3,13 @@ import ButtonOrange from './ButtonOrange'
 import Statistics from './Statistics'
 import { type PokemonCard } from './../types/ApiResponse'
 import { useParams } from 'react-router-dom'
+import { ScrollClear } from '../helper/ScrollClear'
 
 function CardTemplate () {
   const [card, setCard] = useState<PokemonCard | null>(null)
   const { id } = useParams()
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
+  ScrollClear()
   useEffect(() => {
     fetch(`https://api.pokemontcg.io/v2/cards/${id}`, {
       headers: {
