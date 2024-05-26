@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import { type Key, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { type PokemonCard } from './types/SearchCard'
+import { type Datum } from './types/SearchCard'
 import { ScrollClear } from '../helper/ScrollClear'
 
 function SearchCard () {
   ScrollClear()
   const { name } = useParams()
-  const [pokeCards, setPokeCards] = useState<PokemonCard | null>(null)
+  const [pokeCards, setPokeCards] = useState([])
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
@@ -21,7 +22,6 @@ function SearchCard () {
             return
           }
         }
-
         const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}`)
         const dataApi = await response.json()
         const { data } = dataApi
@@ -61,10 +61,14 @@ function SearchCard () {
             <option value="Desc">Desc</option>
           </select>
         </div>
-      </div><div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:lg:grid-cols-5 gap-5 xl:gap-10  mb-20 justify-items-center'>
-          {pokeCards.map((item: Datum, index) => (
-            <Link key={index} to={`/card/${item.id}`}> <img key={index} width={245} height={342} src={item.images.small} alt={item.name} /></Link>
-          ))}
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:lg:grid-cols-5 gap-5 xl:gap-10  mb-20 justify-items-center'>
+      {
+      pokeCards?.map((item: Datum, index: Key | null | undefined) => (
+  <Link key={index} to={`/card/${item.id}`}>
+    <img key={index} width={245} height={342} src={item.images.small} alt={item.name} />
+  </Link>
+      ))}
         </div></>}
   </div>)
 }
