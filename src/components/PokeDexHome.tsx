@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { FiSearch } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const cardPokemonHome = [
   { numero: 1, right: 'right-[0px]', left: 'left-[-700px]', position: 'z-20', bottom: 'bottom-[-250px]', id: 'mcd11-7' },
@@ -39,9 +39,7 @@ function PokeDexHome () {
         <h4 className='text-center mb-24'>Try <a className='text-[#485fc7]' href="/Prueba-1/search/venusaur"> {'"venusaur"'} </a> or <a className='text-[#485fc7]' href="#"> {'"subtypes:mega"'} </a> or simply <a className='text-[#485fc7un ]' href="#">Browse By Set</a> </h4>
       </div>
       {cardPokemonHome.map((item, index) => (
-        <a key={index} href="#">
-          <a href={`/card/${item.id}`}><img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></a>
-        </a>
+        <Link key={index} to={`/card/${item.id}`}> <img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></Link>
       ))}
     </div>
   </main>)
