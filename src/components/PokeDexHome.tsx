@@ -3,11 +3,11 @@ import { FiSearch } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 
 const cardPokemonHome = [
-  { numero: 1, right: 'right-[0px]', left: 'left-[-700px]', position: 'z-20', bottom: 'bottom-[-250px]' },
-  { numero: 2, right: 'right-[0px]', left: 'left-[-350px]', position: 'z-10', bottom: 'bottom-[-150px]' },
-  { numero: 3, right: 'right-[0px]', left: 'left-[0px]', position: 'z-20', bottom: 'bottom-[-200px]' },
-  { numero: 4, right: 'right-[-350px]', left: 'left-[0px]', position: 'z-10', bottom: 'bottom-[-150px]' },
-  { numero: 5, right: 'right-[-700px]', left: 'left-[0px]', position: 'z-20', bottom: 'bottom-[-250px]' }
+  { numero: 1, right: 'right-[0px]', left: 'left-[-700px]', position: 'z-20', bottom: 'bottom-[-250px]', id: 'mcd11-7' },
+  { numero: 2, right: 'right-[0px]', left: 'left-[-350px]', position: 'z-10', bottom: 'bottom-[-150px]', id: 'mcd11-9' },
+  { numero: 3, right: 'right-[0px]', left: 'left-[0px]', position: 'z-20', bottom: 'bottom-[-200px]', id: 'swsh4-57' },
+  { numero: 4, right: 'right-[-350px]', left: 'left-[0px]', position: 'z-10', bottom: 'bottom-[-150px]', id: 'swsh7-78' },
+  { numero: 5, right: 'right-[-700px]', left: 'left-[0px]', position: 'z-20', bottom: 'bottom-[-250px]', id: 'basep-28' }
 ]
 
 function PokeDexHome () {
@@ -40,7 +40,7 @@ function PokeDexHome () {
       </div>
       {cardPokemonHome.map((item, index) => (
         <a key={index} href="#">
-          <a href=""><img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></a>
+          <a href={`/Prueba-1/card/${item.id}`}><img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></a>
         </a>
       ))}
     </div>
