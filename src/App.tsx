@@ -14,7 +14,7 @@ function App () {
         <Routes>
           <Route path='/Prueba-1' element={<PokeDexHome/>} />
           <Route path='/Prueba-1/search/:name' element={<SearchCard/>} />
-          <Route path='/Prueba-1/card/:id' element={<CardTemplate/>} />
+          <Route path='/card/:id' element={<CardTemplate/>} />
         </Routes>
         <Footer />
       </div>

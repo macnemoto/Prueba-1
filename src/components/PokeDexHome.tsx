@@ -40,7 +40,7 @@ function PokeDexHome () {
       </div>
       {cardPokemonHome.map((item, index) => (
         <a key={index} href="#">
-          <a href={`/Prueba-1/card/${item.id}`}><img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></a>
+          <a href={`/card/${item.id}`}><img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></a>
         </a>
       ))}
     </div>
