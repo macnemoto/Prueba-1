@@ -39,7 +39,7 @@ function PokeDexHome () {
         <h4 className='text-center mb-24'>Try <a className='text-[#485fc7]' href="/Prueba-1/search/venusaur"> {'"venusaur"'} </a> or <a className='text-[#485fc7]' href="#"> {'"subtypes:mega"'} </a> or simply <a className='text-[#485fc7un ]' href="#">Browse By Set</a> </h4>
       </div>
       {cardPokemonHome.map((item, index) => (
-        <Link key={index} to={`/card/${item.id}`}> <img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></Link>
+        <Link key={index} to={`/Prueba-1/card/${item.id}`}> <img width='240' className={`hover:animate-[imgPokemon_1s_ease-in-out_infinite] mx-auto absolute ${item.position} ${item.left} ${item.right} ${item.bottom}`} src={`/Prueba-1/img/homeImg/${item.numero}.png`} alt="" /></Link>
       ))}
     </div>
   </main>)
