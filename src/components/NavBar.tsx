@@ -41,7 +41,7 @@ function NavBar () {
     <header className="flex flex-col justify-center bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none relative z-50 h-16">
       <div className=' flex justify-between pl-4 lg:justify-between lg:container lg:mx-auto lg:pl-10'>
         <div className="flex items-center relative">
-          <a href="http://localhost:5173/"><img className=" h-auto w-16 lg:w-[4rem]" src="/public/navBar/grookey.webp" alt="pokemon" /></a>
+          <a href="http://localhost:5173/"><img className=" h-auto w-16 lg:w-[4rem]" src="/navBar/grookey.webp" alt="pokemon" /></a>
           <a className='dark:text-white self-center font-semibold px-4 lg:w-44 lg:text-center lg:px-0"' href="/Prueba-1/" >
             Pokémon TCG Guru
           </a>
