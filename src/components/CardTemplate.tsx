@@ -1,7 +1,7 @@
+import { type PokemonCard } from './../types/ApiResponse'
 import { useEffect, useState } from 'react'
 import ButtonOrange from './ButtonOrange'
 import Statistics from './Statistics'
-import { type PokemonCard } from './../types/ApiResponse'
 import { useParams } from 'react-router-dom'
 import { ScrollClear } from '../helper/ScrollClear'
 
@@ -49,7 +49,7 @@ function CardTemplate () {
         <div className='flex flex-row justify-center items-center w-2/5 pb-3 bg-[#FAFAFA] dark:bg-gray-500 rounded-bl-[9px] drop-shadow-3xl dark:drop-shadow-none'>
           <p className='uppercase bg-[#FAFAFA] dark:bg-gray-500 pr-2 '>ps <span className='text-2xl'> {card?.data.hp} </span></p>
           {card?.data.types.map((item, index) =>
-            <img className='h-6 w-6' key={index} src={`/img/${item}.webp`} alt={item} />
+            <img className='h-6 w-6' key={index} src={`/Prueba-1/img/${item}.webp`} alt={item} />
           )}
         </div>
       </div>
@@ -65,7 +65,7 @@ function CardTemplate () {
             <div className='flex pt-3 self-end'>
               {card?.data.weaknesses.map((item, index) =>
                 <div key={index} className='flex'>
-                  <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item.type}.webp`} alt={item.type} />
+                  <img className='w-6 h-6 mt-1 mx-1' src={`/Prueba-1/img/${item.type}.webp`} alt={item.type} />
                   <span className='text-2xl text-black'>{item.value}</span>
                 </div>
               )}
@@ -76,7 +76,7 @@ function CardTemplate () {
               {((card?.data.resistances) != null)
                 ? card.data.resistances.map((item, index) => (
                   <div key={index} className='flex pt-4'>
-                    <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item.type}.webp`} alt={item.type} />
+                    <img className='w-6 h-6 mt-1 mx-1' src={`/Prueba-1/img/${item.type}.webp`} alt={item.type} />
                     <span className='text-2xl text-black'>{item.value}</span>
                   </div>
                 ))
@@ -88,7 +88,7 @@ function CardTemplate () {
               {((card?.data.retreatCost) != null)
                 ? (card?.data.retreatCost.map((item, index) =>
                   <div key={index} className='flex'>
-                    <img className='w-6 h-6 mt-1 mx-1' src={`/img/${item}.webp`} alt={item} />
+                    <img className='w-6 h-6 mt-1 mx-1' src={`/Prueba-1/img/${item}.webp`} alt={item} />
                   </div>
                   ))
                 : <p></p>}

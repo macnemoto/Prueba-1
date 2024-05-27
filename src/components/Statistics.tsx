@@ -11,7 +11,7 @@ function Statistics ({ name, power, cost, text }: PokemonStatistics) {
       <div className='flex items-center justify-between w-full px-4 mb-1'>
         <div className='flex flex-row w-4/5 '>
           {cost?.map((item, index) =>
-            <img key={index} className='w-6 h-6 mt-1 mx-1' src={`/img/${item}.webp`} alt={item} />
+            <img key={index} className='w-6 h-6 mt-1 mx-1' src={`/Prueba-1/img/${item}.webp`} alt={item} />
           )}
           <p className='self-center font-semibold'>{name}</p>
         </div>
