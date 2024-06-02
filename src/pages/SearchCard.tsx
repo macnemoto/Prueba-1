@@ -23,7 +23,7 @@ function SearchCard () {
             return
           }
         }
-        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}`)
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}&page=1&pageSize=25`)
         const dataApi = await response.json()
         const { data } = dataApi
         setPokeCards(data)
