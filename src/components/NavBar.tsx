@@ -44,11 +44,11 @@ function NavBar () {
       <div className=' flex justify-between pl-4 lg:justify-between lg:container lg:mx-auto lg:pl-10'>
         <div className="flex items-center relative">
           <Link to="/Prueba-1"><img className=" h-auto w-16 lg:w-[4rem]" src="/Prueba-1/navBar/grookey.webp" alt="pokemon" /></Link>
-          <Link className='dark:text-white self-center font-semibold px-4 lg:w-44 lg:text-center lg:px-0"' to="/Prueba-1/" >
+          <Link className='dark:text-white self-center font-semibold px-4 lg:w-48 lg:text-center lg:px-0"' to="/Prueba-1/" >
             Pokémon TCG Guru
           </Link>
           <div className='hidden lg:block'>
-            <InputPokemon inputClass='h-10' />
+            <InputPokemon inputClass='h-10 border dark:border-slate-950' />
           </div>
         </div>
         <div className='w-10 self-center lg:hidden' onClick={toggleNavBar}>
@@ -68,7 +68,7 @@ function NavBar () {
       <div className='block lg:hidden'>
         <div className={navBar ? 'py-3 z-50 absolute bg-[#ffffff] dark:bg-[#161B22] w-full' : 'hidden'}>
           <div className='relative'>
-            <InputPokemon inputClass='w-full h-10' updateNavbarToggle={updateNavbarToggle} />
+            <InputPokemon inputClass='w-full h-10 border dark:border-slate-950' updateNavbarToggle={updateNavbarToggle} />
           </div>
           {navElement.map((item, index) => (<a className='flex dark:text-[#beb6b6] pl-2 h-10 py-2 hover:bg-[#F2F2F2] dark:hover:bg-[#0D1117]' key={index} href={`/${item}`}>{item}</a>
           ))}
