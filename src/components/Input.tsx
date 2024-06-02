@@ -27,7 +27,7 @@ function InputPokemon ({ inputClass, updateNavbarToggle }: InputPokemonType) {
 
   return (
     <form className='flex self-center relative w-full max-w-[41.19rem] h-full' onSubmit={handleSubmit}>
-      <input className={`self-center rounded border-slate-800 dark:bg-[#0D1117] dark:text-white py-2 pl-10 pr-2 ${inputClass}`} placeholder='Search for a card' type="search" value={pokemonName} onChange={handleChange} />
+      <input className={`self-center rounded border-slate-300 dark:bg-[#0D1117] dark:text-white py-2 pl-10 pr-2 ${inputClass}`} placeholder='Search for a card' type="search" value={pokemonName} onChange={handleChange} />
       <FiSearch className=' absolute left-[0.75rem] top-[0.68rem] text-[#606164] h-5 w-5' />
     </form>
 
