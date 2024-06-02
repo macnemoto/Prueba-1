@@ -37,6 +37,7 @@ function NavBar () {
 
   const updateNavbarToggle = () => {
     setNavBar(false)
+    setIconX(false)
   }
   return (
     <header className="flex flex-col justify-center bg-[#FFFFFF] dark:bg-[#161B22] drop-shadow-xl dark:drop-shadow-none relative z-50 h-16">
