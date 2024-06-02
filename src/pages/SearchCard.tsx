@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { type Key, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { type Datum } from './types/SearchCard'
 import { ScrollClear } from '../helper/ScrollClear'
 
@@ -9,6 +9,7 @@ function SearchCard () {
   const { name } = useParams()
   const [pokeCards, setPokeCards] = useState([])
   const [loader, setLoader] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fechData = async () => {
@@ -26,7 +27,13 @@ function SearchCard () {
         const dataApi = await response.json()
         const { data } = dataApi
         setPokeCards(data)
-        // console.log(name)
+        console.log(data.length)
+
+        if (data.length === 0) {
+          navigate('/Prueba-1/card/no-found')
+          return
+        }
+
         if (name != null) {
           localStorage.setItem(name, JSON.stringify(data))
         }

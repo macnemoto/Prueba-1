@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PokeDexHome from './components/PokeDexHome'
 import SearchCard from './pages/SearchCard'
 import CardTemplate from './components/CardTemplate'
+import NotFound from './pages/NotFound'
 
 function App () {
   return (
@@ -15,6 +16,8 @@ function App () {
           <Route path='/Prueba-1' element={<PokeDexHome/>} />
           <Route path='/Prueba-1/search/:name' element={<SearchCard/>} />
           <Route path='/Prueba-1/card/:id' element={<CardTemplate/>} />
+          <Route path='*' element={<NotFound title={"Woops! That page doesn't exist!"} img='noFound/pikachu.png'/> } />
+          {/* <Route path='*' element={<NotFound title={"Woops! That page doesn't exist!"} img='noFound/pikachu.png'/> } /> */}
         </Routes>
         <Footer />
       </div>
