@@ -23,7 +23,7 @@ function SearchCard () {
             return
           }
         }
-        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}`)
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}&page=1&pageSize=25`)
         const dataApi = await response.json()
         const { data } = dataApi
         setPokeCards(data)
@@ -69,14 +69,15 @@ function SearchCard () {
           </select>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:lg:grid-cols-5 gap-5 xl:gap-10  mb-20 justify-items-center'>
-      {
-      pokeCards?.map((item: Datum, index: Key | null | undefined) => (
-  <Link key={index} to={`/Prueba-1/card/${item.id}`}>
-    <img key={index} width={245} height={342} src={item.images.small} alt={item.name} />
-  </Link>
-      ))}
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:lg:grid-cols-5 gap-5 xl:gap-10  mb-20 justify-items-center'>
+          {
+            pokeCards?.map((item: Datum, index: Key | null | undefined) => (
+              <Link key={index} to={`/Prueba-1/card/${item.id}`}>
+                <img key={index} width={245} height={342} src={item.images.small} alt={item.name} />
+              </Link>
+            ))}
         </div></>}
+        <div>test</div>
   </div>)
 }
 
