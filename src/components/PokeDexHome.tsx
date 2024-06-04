@@ -17,7 +17,7 @@ function PokeDexHome () {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (pokemonName.trim().length > 0) {
-      navigate(`/Prueba-1/search/${pokemonName.trim().toLowerCase()}`)
+      navigate(`/Prueba-1/search/${pokemonName.trim().toLowerCase()}/1`)
     }
   }
 

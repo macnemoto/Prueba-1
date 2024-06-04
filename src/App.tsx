@@ -15,6 +15,7 @@ function App () {
         <Routes>
           <Route path='/Prueba-1' element={<PokeDexHome/>} />
           <Route path='/Prueba-1/search/:name' element={<SearchCard/>} />
+          <Route path='/Prueba-1/search/:name/:page' element={<SearchCard/>} />
           <Route path='/Prueba-1/card/:id' element={<CardTemplate/>} />
           <Route path='*' element={<NotFound title={"Woops! That page doesn't exist!"} img='/Prueba-1/noFound/pikachu.png'/> } />
         </Routes>
