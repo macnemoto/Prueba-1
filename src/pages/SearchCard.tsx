@@ -12,43 +12,38 @@ function SearchCard () {
   const [loader, setLoader] = useState(true)
   const [pageNumber, setPageNumber] = useState(1)
   const [pageBotton, setPageBotton] = useState<string | undefined>('1')
+  const [totalCount, setTotalCount] = useState<number | null>(null)
+  const [pageNumberParams, setPageNumberParams] = useState<number>()
 
   const navigate = useNavigate()
 
   useEffect(() => {
     const fechData = async () => {
-      // try {
-      //   if (name != null) {
-      //     const dataPokeApi = localStorage.getItem(name)
-      //     if (dataPokeApi != null) {
-      //       const dataPokeApiParse = JSON.parse(dataPokeApi)
-      //       setPokeCards(dataPokeApiParse)
-      //       setLoader(false)
-      //       return
-      //     }
-      //   }
       const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}&page=${page}&pageSize=25`)
       const dataApi = await response.json()
-      const { data } = dataApi
+      const { data, totalCount } = dataApi
+      setTotalCount(totalCount)
       setPokeCards(data)
       setPageBotton(page)
-      // console.log(page)
 
-      // if (name != null) {
-      //   localStorage.setItem(name, JSON.stringify(data))
-      // }
       setLoader(false)
-      // } catch (error) {
-      //   console.error('Error Fetching data:', error)
-      // }
     }
     void fechData()
   }, [pageNumber])
 
-  // useEffect(() => {
-  //   setPageNumber(page)
-  // }, [pageBotton])
-
+  useEffect(() => {
+    console.log(totalCount)
+    const apiData = () => {
+      if (totalCount !== null) {
+        const finalPage = totalCount / 25
+        const rounded = Math.ceil(finalPage)
+        const roundedNumer = Number(rounded)
+        setPageNumberParams(roundedNumer)
+        console.log(roundedNumer)
+      }
+    }
+    apiData()
+  }, [totalCount])
   const updatePage = (page: number) => {
     const numberBotton = Number(page)
     if (numberBotton <= 0) {
@@ -56,9 +51,16 @@ function SearchCard () {
     }
     setLoader(true)
     setPageNumber(numberBotton)
-    console.log(name, numberBotton)
     navigate(`/Prueba-1/search/${name}/${numberBotton}`)
     window.scrollTo(0, 0)
+  }
+
+  const bottomFinal = (page: string, pageNumberParams: number) => {
+    console.log(typeof (page), typeof (pageNumberParams), page, pageNumberParams)
+    const numberBotton = Number(page)
+    if (numberBotton === pageNumberParams) {
+      console.log('No paso al siguiente paso')
+    }
   }
 
   return (<div className='container mx-auto px-5 min-h-[600px]'>
@@ -96,8 +98,8 @@ function SearchCard () {
               ))}
           </div></>}
     <div className='flex justify-center font-semibold mb-5 '>
-      <div onClick={() => { updatePage(pageNumber - 1) }} className={pageBotton === '1' ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Previous</div>
-      <div onClick={() => { updatePage(pageNumber + 1) }} className='bg-gray-300 rounded-lg p-4 m-1 cursor-pointer '>Next</div>
+      <div onClick={() => { updatePage(page - 1) }} className={pageBotton === '1' ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Previous</div>
+      <div onClick={() => { bottomFinal(page, pageNumberParams) }} className={(page >= pageNumberParams) ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Next</div>
     </div>
   </div>)
 }
