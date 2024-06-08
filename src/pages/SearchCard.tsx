@@ -32,19 +32,17 @@ function SearchCard () {
   }, [pageNumber])
 
   useEffect(() => {
-    console.log(totalCount)
     const apiData = () => {
       if (totalCount !== null) {
         const finalPage = totalCount / 25
         const rounded = Math.ceil(finalPage)
         const roundedNumer = Number(rounded)
         setPageNumberParams(roundedNumer)
-        console.log(roundedNumer)
       }
     }
     apiData()
   }, [totalCount])
-  const updatePage = (page: number) => {
+  const previousPage = (page: number) => {
     const numberBotton = Number(page)
     if (numberBotton <= 0) {
       return
@@ -55,12 +53,16 @@ function SearchCard () {
     window.scrollTo(0, 0)
   }
 
-  const bottomFinal = (page: string, pageNumberParams: number) => {
-    console.log(typeof (page), typeof (pageNumberParams), page, pageNumberParams)
+  const nextPage = (page: string, pageNumberParams: number) => {
     const numberBotton = Number(page)
-    if (numberBotton === pageNumberParams) {
-      console.log('No paso al siguiente paso')
+    if (numberBotton >= pageNumberParams) {
+      return
     }
+    setLoader(true)
+    const suma = numberBotton + 1
+    setPageNumber(suma)
+    navigate(`/Prueba-1/search/${name}/${suma}`)
+    window.scrollTo(0, 0)
   }
 
   return (<div className='container mx-auto px-5 min-h-[600px]'>
@@ -98,8 +100,8 @@ function SearchCard () {
               ))}
           </div></>}
     <div className='flex justify-center font-semibold mb-5 '>
-      <div onClick={() => { updatePage(page - 1) }} className={pageBotton === '1' ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Previous</div>
-      <div onClick={() => { bottomFinal(page, pageNumberParams) }} className={(page >= pageNumberParams) ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Next</div>
+      <div onClick={() => { previousPage(page - 1) }} className={pageBotton === '1' ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Previous</div>
+      <div onClick={() => { nextPage(page, pageNumberParams) }} className={(page >= pageNumberParams) ? 'bg-gray-600 rounded-lg p-4 m-1 cursor-not-allowed' : 'bg-gray-300 rounded-lg p-4 m-1 cursor-pointer'}>Next</div>
     </div>
   </div>)
 }
