@@ -2,11 +2,13 @@ import { type PokemonCard } from './../types/ApiResponse'
 import { useEffect, useState } from 'react'
 import ButtonOrange from './ButtonOrange'
 import Statistics from './Statistics'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { ScrollClear } from '../helper/ScrollClear'
 
 function CardTemplate () {
   const [card, setCard] = useState<PokemonCard | null>(null)
+  const [cardmarketLink, setcardmarketLink] = useState<string >('')
+  const [namePokemon, setNamePokemon] = useState<string | null>(null)
   const { id } = useParams()
 
   ScrollClear()
@@ -19,16 +21,18 @@ function CardTemplate () {
       .then(async (response) => await response.json())
       .then((card: PokemonCard) => {
         setCard(card)
-        console.log(card)
+        setNamePokemon(card.data.name)
+        setcardmarketLink(card.data.cardmarket.url)
+        console.log(card.data)
       })
       .catch((error) => { console.log(error) })
   }, [])
 
   return (<div className='flex flex-col lg:container lg:mx-auto lg:flex-row justify-center items-center lg:items-start lg:py-10 min-h-[600px] '>
   <div className=' flex lg: flex-col justify-center items-center px-10 lg:w-2/4'>
-    <img className='h-auto w-80 my-10 lg:my-2 rounded-lg' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
+    <img className='h-auto w-80 my-10 lg:my-2 rounded-lg shadow-2xl' src={card?.data.images.large} alt="Pokémon Bulbasaur Card" />
     <div className='hidden lg:block'>
-      <ButtonOrange titleOne={'Find Corphish in Pokémon'} titleTwo={'Explore more cards'} widthOne={'w-[300px]'} widthTow={'w-[200px]'}></ButtonOrange>
+      <ButtonOrange titleOne={`Find ${namePokemon} in Pokémon`} titleTwo={'Explore more cards'} widthOne={'w-[300px]'} widthTow={'w-[200px]'}></ButtonOrange>
     </div>
   </div>
   <section className='flex flex-col items-center lg:items-center w-full font-semibold md:w-[560px] px-4 lg:px-0 lg:mt-3 lg:w-2/4'>
@@ -97,7 +101,7 @@ function CardTemplate () {
         </div>
         <div className='flex self-start pt-4 bg-gray-300 rounded-b-lg w-full px-4 pb-2'>
           <div className='w-1/2'>
-            <a className='font-semibold text-blue-700' href="https://pokemon.fandom.com/es/wiki/Bulbasaur_(TCG)">Carta de promoción</a>
+            <Link className='font-semibold text-blue-700' to={cardmarketLink}>Carta de promoción</Link>
             <p className='font-medium' >SWSH231 Promo</p>
           </div>
           <div className='flex justify-end w-1/2'>
@@ -105,7 +109,7 @@ function CardTemplate () {
           </div>
         </div>
         <div className='block lg:hidden'>
-          <ButtonOrange titleOne={'Find Corphish in Pokémon'} titleTwo={'Explore more cards'} widthOne={'w-full'} widthTow={'w-full'}></ButtonOrange>
+          <ButtonOrange titleOne={`Find ${namePokemon} in Pokémon`} titleTwo={'Explore more cards'} widthOne={'w-full'} widthTow={'w-full'}></ButtonOrange>
         </div>
       </div>
     </div>
