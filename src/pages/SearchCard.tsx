@@ -24,6 +24,8 @@ function SearchCard () {
       const { data, totalCount } = dataApi
       setTotalCount(totalCount)
       setPokeCards(data)
+      const pageNumber = Number(page)
+      console.log(pageNumber)
       setPageBotton(page)
 
       setLoader(false)
@@ -95,7 +97,7 @@ function SearchCard () {
             {
               pokeCards?.map((item: Datum, index: Key | null | undefined) => (
                 <Link key={index} to={`/Prueba-1/card/${item.id}`}>
-                  <img key={index} width={245} height={342} src={item.images.small} alt={item.name} />
+                  <img className='shadow-xl' key={index} width={245} height={342} src={item.images.small} alt={item.name} />
                 </Link>
               ))}
           </div></>}
